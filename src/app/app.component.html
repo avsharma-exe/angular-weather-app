@@ -1,9 +1,9 @@
 
-<section id="weather-section">
+<section id="weather-section" [ngStyle]="{'background-color': (weatherData!.main.temp - 32)*(0.5556)>18 ? '#7a3c13ee' : 'inherit' }">
   <form #search="ngForm" (ngSubmit)="onSubmit()" >
     <input type="text" name="city" [(ngModel)]="city" placeholder="Enter the city name">
   </form>
-  <div class="weather-card" *ngIf="weatherData">
+  <div class="weather-card" *ngIf="weatherData" [ngStyle]="{'background-color': (weatherData!.main.temp - 32)*(0.5556)>18 ? '#e5540c' : null }">
     <div class="top-container">
       <img src="../assets/winter.jpg" alt="snow fall" *ngIf="(weatherData.main.temp - 32)*(0.5556)<=18">
       <img src="../assets/summer.jpg" alt="snow fall" *ngIf="(weatherData.main.temp - 32)*(0.5556)>18">
